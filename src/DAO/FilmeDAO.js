@@ -33,11 +33,11 @@ class FilmeDAO{
     
     static async criar(req, res){
             var objetoFilme     = new Filme()
-            objetoFilme.setTitulo(req.body.titulo)
-            objetoFilme.setSinopse(req.body.sinopse)
-            objetoFilme.setGenero(req.body.genero)
-            objetoFilme.setDuracao(req.body.duracao)
-            objetoFilme.setDiretor(req.body.diretor)
+            objetoFilme.setTitulo   (req.body.titulo)
+            objetoFilme.setSinopse  (req.body.sinopse)
+            objetoFilme.setGenero   (req.body.genero)
+            objetoFilme.setDuracao  (req.body.duracao)
+            objetoFilme.setDiretor  (req.body.diretor)
             const dados={
                 titulo:     objetoFilme.getTitulo(),
                 sinopse:    objetoFilme.getSinopse(),
@@ -51,7 +51,7 @@ class FilmeDAO{
     }
     static async listar (req, res){
         try{
-        const dados = await LivroModel.findAll(); // SELECT * FROM Filmes
+        const dados = await FilmeModel.findAll(); // SELECT * FROM Filmes
         res.json(dados)
         }
         catch(Error){
