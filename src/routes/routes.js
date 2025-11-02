@@ -11,7 +11,8 @@ router.get('/categorias', CategoriaDAO.listar)
 router.post('/categorias/deletar/:id', CategoriaDAO.delete)
 router.post('/categorias/alterar/:id', CategoriaDAO.alterarPorId)
 
-router.post('/filmes/criar', FilmeDAO.criar)
-router.get('/filmes/listar', FilmeDAO.listar)
+router.post('/filmes/criar',        FilmeDAO.criar)
+router.get('/filmes/listar',        FilmeDAO.listar)
+router.post('/filmes/alterar/:id',  FilmeDAO.alterarPorId)
 
 module.exports = router
