@@ -35,7 +35,7 @@ class FilmeDAO{
             const dados={
                 titulo:     objetoFilme.getTitulo(),
                 sinopse:    objetoFilme.getSinopse(),
-                genero:     objetoFilme.getSinopse(),
+                genero:     objetoFilme.getGenero(),
                 duracao:    objetoFilme.getDuracao(),
                 diretor:    objetoFilme.getDiretor()
             }
@@ -56,14 +56,14 @@ class FilmeDAO{
         const dadosAtualizados = {
             titulo:     objetoFilme.getTitulo(),
                 sinopse:    objetoFilme.getSinopse(),
-                genero:     objetoFilme.getSinopse(),
+                genero:     objetoFilme.getGenero(),
                 duracao:    objetoFilme.getDuracao(),
                 diretor:    objetoFilme.getDiretor()
         }
         await dadosAntigos.update(dadosAtualizados)
         res.status(200).json(dadosAtualizados)
     }
-    
+
     static async listar (req, res){
         try{
         const dados = await FilmeModel.findAll(); // SELECT * FROM Filmes
