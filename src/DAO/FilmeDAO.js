@@ -64,6 +64,15 @@ class FilmeDAO{
         res.status(200).json(dadosAtualizados)
     }
 
+    static async deletar(req, res){
+        const id = req.params.id
+        const dados = await FilmeModel.findByPk(id); // retorna o registro da tabela categoria  com base no parâmetro id (Chave primária)
+        if (dados!=null){
+            await dados.destroy() // DELETE CATEGORIA WHERE ID = ''""
+            res.status(204).json({message:"excluído"})
+        }
+    }
+
     static async listar (req, res){
         try{
         const dados = await FilmeModel.findAll(); // SELECT * FROM Filmes
