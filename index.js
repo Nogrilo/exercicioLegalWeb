@@ -10,9 +10,10 @@ const CategoriaDAO = require('./src/DAO/CategoriaDAO.js');
 
 const app = express();
 //const categoriaRoutes = require('./src/routes/routes.js');
+const filmeRoutes   = require('./src/routes/routes.js')
 
 app.use(express.json()); // <-- tem que vir antes das rotas!
-app.use('/api', categoriaRoutes);
+app.use('/api', filmeRoutes);
 
 const PORT = 3000;
 app.use(express.static('public'));

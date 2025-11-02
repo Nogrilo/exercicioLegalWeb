@@ -1,6 +1,6 @@
 const DataTypes = require ('sequelize') // import do sequelize
-const Filme = require ("../models/Filme")
-const db = require ('../database/conexao'); // import da classe de conexão com o banco de dados
+const Filme     = require ("../models/Filme")
+const db        = require ('../database/conexao'); // import da classe de conexão com o banco de dados
 
 // Cria uma tabela chamada Categoria no banco Biblioteca
 const FilmeModel = db.define("Filmes",{
@@ -32,7 +32,7 @@ FilmeModel.sync()
 class FilmeDAO{
     
     static async criar(req, res){
-            var objetoFilme     = new Filme()
+            var objetoFilme         = new Filme()
             objetoFilme.setTitulo   (req.body.titulo)
             objetoFilme.setSinopse  (req.body.sinopse)
             objetoFilme.setGenero   (req.body.genero)
