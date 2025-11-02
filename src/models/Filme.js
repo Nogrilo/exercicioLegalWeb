@@ -50,4 +50,4 @@ class Filme{
     }
 
 }
-module.exports = Categoria
+module.exports = Filme
