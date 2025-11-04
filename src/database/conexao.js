@@ -8,9 +8,9 @@ const sequelize = new Sequelize('bibliotecaFilmes', 'root', 'mitona@', {
 
 try {
   sequelize.authenticate()
-  console.log('Conexao Feita')
+  console.log('Conexao realizada')
 } catch (error) {
-  console.error('Não foi possível conectar:', error)
+  console.error('Conexao não realizada:', error)
 }
 
 module.exports = sequelize

@@ -1,8 +1,8 @@
-const DataTypes = require ('sequelize') // import do sequelize
-const Filme     = require ("../models/Filme")
-const db        = require ('../database/conexao'); // import da classe de conexão com o banco de dados
+const DataTypes = require ('sequelize') // Importar o sequelize, para vincular com o banco de dados
+const Filme     = require ("../models/Filme") // Importar a classe de Filme
+const db        = require ('../database/conexao'); // Importar o arquivo de conexao com o banco de dados
 
-// Cria uma tabela chamada Categoria no banco Biblioteca
+// Criar a tabela Filmes no banco de dados
 const FilmeModel = db.define("Filmes",{
     titulo: {
         type: DataTypes.STRING
@@ -21,7 +21,7 @@ const FilmeModel = db.define("Filmes",{
     }
 });
 
-//Assegura que a tabela seja criada caso ela não exista no BD
+// Garantir que a tabela seja criada no bd
 FilmeModel.sync()
 class FilmeDAO{
     
@@ -46,7 +46,7 @@ class FilmeDAO{
 
     static async alterarPorId(req, res){
         const id = req.params.id
-        const dadosAntigos      = await FilmeModel.findByPk(id)// retornar um registro da tabela com base no id
+        const dadosAntigos      = await FilmeModel.findByPk(id)// Retonar o registro no bd com base no ID
         const objetoFilme       = new Filme()
         objetoFilme.setTitulo   (req.body.titulo)
         objetoFilme.setSinopse  (req.body.sinopse)
@@ -66,7 +66,7 @@ class FilmeDAO{
 
     static async deletar(req, res){
         const id = req.params.id
-        const dados = await FilmeModel.findByPk(id); // retorna o registro da tabela categoria  com base no parâmetro id (Chave primária)
+        const dados = await FilmeModel.findByPk(id); // retorna o registro da tabela filmes com base no parâmetro id (Chave primária)
         if (dados!=null){
             await dados.destroy() // DELETE CATEGORIA WHERE ID = ''""
             res.status(204).json({message:"excluído"})
