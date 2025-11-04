@@ -14,4 +14,5 @@ router.post('/generos/criar',       Genero.criar)
 router.get('/generos/listar',       GeneroDAO.listar)
 router.post('/generos/alterar/:id', GeneroDAO.alterarPorId)
 router.post('/generos/deletar/:id', GeneroDAO.deletar)
+
 module.exports = router

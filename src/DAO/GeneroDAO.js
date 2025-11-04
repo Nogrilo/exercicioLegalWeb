@@ -16,6 +16,9 @@ const GeneroModel = db.define("Generos",{
 GeneroModel.sync()
 class GeneroDAO{
     
+    static getGeneroModel() {
+        return GeneroModel
+    }
     static async criar(req, res){
             var objetoGenero            = new Genero()
             objetoGenero.setNome        (req.body.titulo)
