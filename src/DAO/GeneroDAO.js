@@ -61,7 +61,7 @@ class GeneroDAO{
         res.json(dados)
         }
         catch(Error){
-
+            
         }
     }
 }
