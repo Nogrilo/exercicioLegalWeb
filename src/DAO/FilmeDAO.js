@@ -1,7 +1,7 @@
-const DataTypes = require('sequelize') // Importar o sequelize, para vincular com o banco de dados
-const Filme = require("../models/Filme") // Importar a classe de Filme
-const db = require('../database/conexao'); // Importar o arquivo de conexao com o banco de dados
-const GeneroDAO = require('../DAO/GeneroDAO'); // Importar o GeneroDAO
+const DataTypes     = require ('sequelize') // Importar o sequelize, para vincular com o banco de dados
+const Filme         = require ("../models/Filme") // Importar a classe de Filme
+const db            = require ('../database/conexao'); // Importar o arquivo de conexao com o banco de dados
+const GeneroDAO     = require ('../DAO/GeneroDAO'); // Importar o GeneroDAO
 
 // Criar a tabela Filmes no banco de dados
 const FilmeModel = db.define("Filmes", {
@@ -36,30 +36,21 @@ FilmeModel.sync()
 class FilmeDAO {
 
     static async criar(req, res) {
-        var objetoFilme = new Filme()
-        objetoFilme.setTitulo(req.body.titulo)
-        objetoFilme.setSinopse(req.body.sinopse)
-        objetoFilme.setGenero(req.body.generoID)
-        objetoFilme.setDuracao(req.body.duracao)
-        objetoFilme.setDiretor(req.body.diretor)
+        var objetoFilme             = new Filme()
+        objetoFilme.setTitulo       (req.body.titulo)
+        objetoFilme.setSinopse      (req.body.sinopse)
+        objetoFilme.setGenero       (req.body.generoID)
+        objetoFilme.setDuracao      (req.body.duracao)
+        objetoFilme.setDiretor      (req.body.diretor)
         const dados = {
-            titulo: objetoFilme.getTitulo(),
-            sinopse: objetoFilme.getSinopse(),
-            generoID: objetoFilme.getGenero(),
-            duracao: objetoFilme.getDuracao(),
-            diretor: objetoFilme.getDiretor()
+            titulo:     objetoFilme.getTitulo(),
+            sinopse:    objetoFilme.getSinopse(),
+            generoID:   objetoFilme.getGenero(),
+            duracao:    objetoFilme.getDuracao(),
+            diretor:    objetoFilme.getDiretor()
         }
-        try {
-            await FilmeModel.create(dados)// Inserir o registro no banco de dados
+        await FilmeModel.create(dados)// Inserir o registro no banco de dados
         res.status(201).json(dados)
-        } catch (error) {
-            // Envie a mensagem de erro para ver o que o banco de dados retornou
-        console.error("Erro ao criar filme:", error.message); 
-        res.status(500).json({ 
-            message: "Erro ao criar filme no banco de dados.",
-            errorDetails: error.message // Use error.message para a mensagem exata do SQL/Sequelize
-        });
-        }
     }
     static async alterarPorId(req, res) {
         const id = req.params.id
