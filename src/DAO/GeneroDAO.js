@@ -2,7 +2,7 @@ const DataTypes     = require ('sequelize') // Importar o sequelize, para vincul
 const Genero        = require ("../models/Genero") // Importar a classe de Genero
 const db            = require ('../database/conexao'); // Importar o arquivo de conexao com o banco de dados
 
-// Criar a tabela Genero no banco de dados
+// Criar a tabela Generos no banco de dados
 const GeneroModel = db.define("Generos",{
     nome: {
         type: DataTypes.STRING
@@ -57,7 +57,7 @@ class GeneroDAO{
 
     static async listar (req, res){
         try{
-        const dados = await GeneroModel.findAll(); // SELECT * FROM Filmes
+        const dados = await GeneroModel.findAll(); // SELECT * FROM Generos
         res.json(dados)
         }
         catch(Error){
