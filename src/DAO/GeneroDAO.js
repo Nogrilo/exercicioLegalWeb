@@ -51,7 +51,7 @@ class GeneroDAO{
         const dados = await GeneroModel.findByPk(id); // retorna o registro da tabela Generos com base no parâmetro id (Chave primária)
         if (dados!=null){
             await dados.destroy() // DELETE CATEGORIA WHERE ID = ''""
-            res.status(204).json({message:"excluído"})
+            res.status(204).json({message:"Genero Excluido"})
         }
     }
 
