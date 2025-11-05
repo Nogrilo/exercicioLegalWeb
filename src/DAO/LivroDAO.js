@@ -14,7 +14,7 @@ const LivroModel = db.define("Livro",{
     categoriaId:{ //Definir um atributo categoriaId
         type: DataTypes.INTEGER, //tipo inteiro
         references: { // define a referência do atributo
-            modedel : 'Categoria', // Define como referência para o atributo um id de um registro de Categoria
+            modedel: 'Categoria', // Define como referência para o atributo um id de um registro de Categoria
             key: 'id',
             allowNull: false
         }

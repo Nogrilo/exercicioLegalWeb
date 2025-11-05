@@ -3,7 +3,7 @@ class Filme{
     
     sinopse = ""
 
-    genero = ""
+    generoID = 0
 
     duracao = 0
 
@@ -23,11 +23,11 @@ class Filme{
     }
 
     getGenero() {
-        return this.genero
+        return this.generoID
     }
 
-    setGenero(genero) {
-        this.genero = genero
+    setGenero(generoID) {
+        this.generoID = generoID
     }
 
     getDuracao() {

@@ -15,8 +15,8 @@ class Genero{
         return this.descricao
     }
 
-    setDescricao(){
-        this.descricao = this.descricao
+    setDescricao(descricao){
+        this.descricao = descricao
     }
 
     constructor(){
