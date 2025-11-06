@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Filme</title>
+  <link rel="stylesheet" href="filme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="cabecalho">
+    <h1>Cadastro de Filme</h1>
+  </header>
+      <div class="navegacao">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="filme.html">Filmes</a>
+            <a href="genero.html">Generos</a>
+        </nav>
+    </div>
+    
+
+  <main class="conteudo">
+    <form class="form-filme" action="#" method="post">
+      <div class="campo">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Digite o título do filme" required>
+      </div>
+
+      <div class="campo">
+        <label for="sinopse">Sinopse:</label>
+        <textarea id="sinopse" name="sinopse" rows="4" placeholder="Digite a sinopse do filme" required></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="genero">Gênero:</label>
+        <input type="text" id="genero" name="genero" placeholder="Ex: Ação, Drama, Comédia" required>
+      </div>
+
+      <div class="campo">
+        <label for="duracao">Duração (minutos):</label>
+        <input type="number" id="duracao" name="duracao" min="0" placeholder="Ex: 120" required>
+      </div>
+
+      <div class="campo">
+        <label for="diretor">Diretor:</label>
+        <input type="text" id="diretor" name="diretor" placeholder="Digite o nome do diretor" required>
+      </div>
+
+      <button type="submit" class="botao">Salvar Filme</button>
+    </form>
+  </main>
+
+  <div class="tabela-container">
+      <h2>Filmes Cadastrados</h2>
+      <table id="tabelaFilmes">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Gênero</th>
+            <th>Duração</th>
+            <th>Diretor</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const botao = document.getElementById('salvar');
+    const tabela = document.querySelector('#tabelaFilmes tbody');
+
+    botao.addEventListener('click', () => {
+      const titulo = document.getElementById('titulo').value.trim();
+      const sinopse = document.getElementById('sinopse').value.trim();
+      const genero = document.getElementById('genero').value.trim();
+      const duracao = document.getElementById('duracao').value.trim();
+      const diretor = document.getElementById('diretor').value.trim();
+
+      if (!titulo || !genero || !duracao || !diretor) {
+        alert('Preencha todos os campos obrigatórios!');
+        return;
+      }
+
+      const novaLinha = document.createElement('tr');
+      novaLinha.innerHTML = `
+        <td>${titulo}</td>
+        <td>${genero}</td>
+        <td>${duracao} min</td>
+        <td>${diretor}</td>
+      `;
+      tabela.appendChild(novaLinha);
+
+      // Limpa os campos
+      document.getElementById('titulo').value = '';
+      document.getElementById('sinopse').value = '';
+      document.getElementById('genero').value = '';
+      document.getElementById('duracao').value = '';
+      document.getElementById('diretor').value = '';
+    });
+  </script>
+
+  <footer class="rodape">
+    <p>© 2025 Coleção de Filmes</p>
+  </footer>
+</body>
+</html>
