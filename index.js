@@ -52,3 +52,8 @@ app.post("/genero.html", (req, res) => {
   const { nome, descricao } = req.body;
   GeneroDAO.criar(req, res)
 });
+
+app.post("/filme.html", (req, res) => {
+    const { titulo, sinopse, generoID, durcao, diretor} = req.body;
+    FilmeDAO.criar(req, res)
+})
