@@ -1,7 +1,7 @@
 class Genero{
-    nome = ""
-    
-    descricao = ""
+        nome = ""
+        
+        descricao = ""
 
     getNome() {
         return this.nome
